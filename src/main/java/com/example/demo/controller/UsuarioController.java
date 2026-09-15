@@ -2,21 +2,21 @@ package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/usuarios")
 public class UsuarioController {
 
-    @GetMapping("/usuarios/{id}")
-    public String usuario(@PathVariable(name = "id") int id) {
-        return "Ficha del usuario " + id;
+    @GetMapping
+    public String lista(@RequestParam(name = "rol", defaultValue = "todos") String rol) {
+        return "Lista de usuarios con rol " + rol;
     }
-    
-    @GetMapping("/proyectos/{proyectoId}/incidencias/{incidenciaId}")
-    public String incidenciaDeProyecto(
-            @PathVariable(name = "proyectoId") int proyectoId,
-            @PathVariable(name = "incidenciaId") int incidenciaId) {
 
-        return "Incidencia " + incidenciaId + " del proyecto " + proyectoId;
+    @GetMapping("/{id}")
+    public String detalle(@PathVariable(name = "id") int id) {
+        return "Ficha del usuario " + id;
     }
 }
