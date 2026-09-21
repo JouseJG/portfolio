@@ -1,27 +1,40 @@
 package com.example.demo.controller;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.demo.model.Tarea;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/tareas")
 public class TareaController {
 
+    private final List<Tarea> tareas = new ArrayList<>();
+
     @GetMapping
     public List<Tarea> lista() {
-        return List.of(
-            new Tarea(1, "Revisar el login", "alta", false),
-            new Tarea(2, "Actualizar dependencias", "baja", true)
-        );
+        return tareas;
     }
 
-    @GetMapping("/ejemplo")
-    public Tarea ejemplo() {
-        return new Tarea(1, "Revisar el login", "alta", false);
+    @GetMapping("/{id}")
+    public Tarea detalle(@PathVariable(name = "id") int id) {
+        for (Tarea tarea : tareas) {
+            if (tarea.getId() == id) {
+                return tarea;
+            }
+        }
+        return null;
+    }
+
+    @PostMapping
+    public Tarea crear(@RequestBody Tarea tarea) {
+        tareas.add(tarea);
+        return tarea;
     }
 }
