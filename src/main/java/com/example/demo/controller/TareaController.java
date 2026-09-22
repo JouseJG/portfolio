@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class TareaController {
 
     private final List<Tarea> tareas = new ArrayList<>();
+    private int siguienteId = 1;
 
     @GetMapping
     public List<Tarea> lista() {
@@ -34,6 +35,8 @@ public class TareaController {
 
     @PostMapping
     public Tarea crear(@RequestBody Tarea tarea) {
+        tarea.setId(siguienteId);
+        siguienteId += 1;
         tareas.add(tarea);
         return tarea;
     }
