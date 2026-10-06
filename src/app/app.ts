@@ -13,14 +13,14 @@ export class App implements AfterViewInit, OnDestroy {
     name: 'José Ramón Jiménez García',
     role: 'Desarrollador Full Stack',
     summary:
-      'Diseño y desarrollo soluciones de software con foco en la automatizacion, rendimiento y calidad de código.',
-    availability: 'Disponible para nuevos proyectos',
+      'Desarrollador y emprendedor con experiencia liderando productos digitales, startups y equipos de tecnología en entornos reales de negocio.',
+    availability: 'Disponible para nuevas oportunidades',
   };
 
   readonly stats = [
-    { value: '3+', label: 'años de experiencia' },
-    { value: '4+', label: 'proyectos' },
-    { value: '100%', label: 'compromiso' },
+    { value: '4+', label: 'años en tecnología' },
+    { value: '3', label: 'roles de liderazgo' },
+    { value: '€250k+', label: 'facturación generada' },
   ];
 
   readonly skills = [
@@ -39,46 +39,65 @@ export class App implements AfterViewInit, OnDestroy {
 
   readonly experience = [
     {
-      period: '2022 — Actualidad',
-      title: 'Desarrollador Web Full Stack',
-      company: 'Proyectos personales y freelance',
+      period: 'dic. 2024 - jul. 2026 · 1 año 8 meses',
+      title: 'CTO & Co-Founder',
+      company: 'Reditorial',
+      location: 'Comunidad Valenciana / Comunitat Valenciana, España · Presencial',
       description:
-        'Creación de interfaces modernas, APIs y proyectos de software con enfoque en experiencia de usuario y lógica de negocio.',
+        'Lideré la puesta en marcha de la empresa y aporté visión estratégica, ejecución y desarrollo del producto digital, junto con el crecimiento de la marca y la operación del negocio.',
     },
     {
-      period: '2020 — 2022',
-      title: 'Desarrollador Frontend / Backend',
-      company: 'Entornos educativos y profesionales',
+      period: 'jun. 2023 - dic. 2024 · 1 año 7 meses',
+      title: 'CTO & Co-Founder',
+      company: 'TwinTune',
+      location: 'Valencia/Valencia, Comunidad Valenciana / Comunitat Valenciana, España · Presencial',
       description:
-        'Implementación de soluciones digitales para gestión, procesos internos y experiencias de usuario más limpias y funcionales.',
+        'Participé en la dirección tecnológica y el desarrollo de soluciones con enfoque en automatización, producto digital y gestión de proyectos. Finalistas del BIME en 2023.',
     },
     {
-      period: '2019 — 2020',
-      title: 'Estudiante de DAW / Desarrollo de software',
-      company: 'Formación profesional',
+      period: 'may. 2023 - nov. 2023 · 7 meses',
+      title: 'CTO',
+      company: 'Aspiro',
+      location: 'Presencial',
       description:
-        'Adquisición de bases sólidas en programación, diseño web, bases de datos, despliegue y metodologías de trabajo.',
+        'Automatización de procesos y desarrollo back-end para mejorar la eficiencia operativa y la arquitectura de la solución tecnológica.',
+    },
+    {
+      period: 'mar. 2023 - ago. 2023 · 6 meses',
+      title: 'Accelerator Program',
+      company: 'Lanzadera',
+      location: 'Valencia/Valencia, Comunidad Valenciana / Comunitat Valenciana, España',
+      description:
+        'Acompañamiento en validación de negocio, estrategia empresarial, estructura inicial y desarrollo del modelo de crecimiento.',
+    },
+    {
+      period: 'nov. 2022 - may. 2023 · 7 meses',
+      title: 'Incubation Program',
+      company: 'STARS',
+      location: 'Valencia/Valencia, Comunidad Valenciana / Comunitat Valenciana, España · Presencial',
+      description:
+        'Formación y apoyo en estrategia empresarial y desarrollo empresarial para materializar la idea de negocio y dar forma al producto.',
     },
   ];
 
   readonly projects = [
     {
-      title: 'Portfolio personal',
-      tag: 'Frontend',
+      title: 'Reditorial',
+      tag: 'Co-Founder',
       description:
-        'Sitio web profesional con enfoque visual premium, narrativa personal y diseño adaptable para dispositivos móviles y escritorio.',
+        'Puesta en marcha de una empresa con foco en crecimiento, operación y construcción del producto digital desde cero.',
     },
     {
-      title: 'Dashboard de gestión',
-      tag: 'Full Stack',
+      title: 'TwinTune',
+      tag: 'CTO & Co-Founder',
       description:
-        'Aplicación para monitorizar datos, procesos y rendimiento con interfaz clara y lógica de negocio enfocada en productividad.',
+        'Lideré parte del desarrollo tecnológico con enfoque en automatización, infraestructura y gestión de proyectos, logrando reconocimiento institucional en el BIME.',
     },
     {
-      title: 'E-commerce / catálogo',
-      tag: 'UX + Desarrollo',
+      title: 'Aspiro',
+      tag: 'CTO',
       description:
-        'Proyecto orientado a presentar productos, mejorar la navegación y potenciar la conversión con un diseño moderno y escalable.',
+        'Automatización de procesos y desarrollo de backend para optimizar operación y mejora funcional de la solución tecnológica.',
     },
   ];
 
