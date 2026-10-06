@@ -21,20 +21,28 @@ jobs:
         with:
           node-version: 22
 
-      - name: Validar el HTML
-        run: npx --yes html-validate@9 "**/*.html"
-  enlaces:
-    name: Enlaces vivos
+      - name: Validar el HTML principal
+        run: npx --yes html-validate@9 "src/index.html"
+
+  build:
+    name: Build Angular
     runs-on: ubuntu-latest
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
 
-      - name: Comprobar los enlaces
-        uses: lycheeverse/lychee-action@v2
+      - name: Preparar Node
+        uses: actions/setup-node@v4
         with:
-          args: --no-progress --max-retries 2 --exclude "https://www.linkedin.com" "**/*.html"
-          fail: true
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar la app
+        run: npm run build
+
   formato:
     name: Formato
     runs-on: ubuntu-latest
@@ -46,6 +54,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          
+
       - name: Comprobar el formato
         run: npx --yes prettier@3 --check "**/*.{html,css,json,md}"

@@ -1,0 +1,148 @@
+<div class="page-shell">
+  <canvas #sceneCanvas class="scene-canvas" aria-label="Fondo 3D"></canvas>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">JR</span>
+      <span>{{ profile.name }}</span>
+    </div>
+
+    <nav class="nav">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a class="button primary" href="#contacto">Hablamos</a>
+  </header>
+
+  <main class="content">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">{{ profile.role }}</p>
+        <h1>
+          Construyo productos,
+          <span>equipos y negocios digitales.</span>
+        </h1>
+        <p class="lead">{{ profile.summary }}</p>
+
+        <div class="cta-row">
+          <a class="button primary" href="#experiencia">Ver experiencia</a>
+          <a class="button secondary" href="#sobre-mi">Sobre mí</a>
+        </div>
+
+        <ul class="stats">
+          @for (item of stats; track item.label) {
+            <li>
+              <strong>{{ item.value }}</strong>
+              <span>{{ item.label }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <aside class="profile-card">
+        <div class="card-glow"></div>
+        <div class="avatar">JR</div>
+        <h2>{{ profile.name }}</h2>
+        <p>{{ profile.role }}</p>
+        <div class="status">
+          <span class="dot"></span>
+          <span>{{ profile.availability }}</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="sobre-mi" class="section intro">
+      <div class="section-heading">
+        <p class="eyebrow">Sobre mí</p>
+        <h3>Desarrollo tecnología con visión de negocio.</h3>
+      </div>
+
+      <div class="intro-grid">
+        <div class="text-panel">
+          <p>
+            Soy José Ramón, desarrollador con experiencia trabajando en startups y proyectos de crecimiento,
+            combinando tecnología, estrategia y ejecución para crear soluciones útiles y escalables.
+          </p>
+          <p>
+            He participado en la creación, validación y desarrollo de empresas y productos digitales,
+            con especial foco en automatización, arquitectura, producto y mejora de procesos.
+          </p>
+        </div>
+
+        <div class="skills-panel">
+          <h4>Stack principal</h4>
+          <div class="chip-list">
+            @for (skill of skills; track skill) {
+              <span class="chip">{{ skill }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Experiencia laboral</p>
+        <h3>Trayectoria profesional centrada en startups y tecnología aplicada al negocio.</h3>
+      </div>
+
+      <div class="timeline">
+        @for (item of experience; track item.title) {
+          <article class="timeline-item">
+            <span class="period">{{ item.period }}</span>
+            <div class="timeline-content">
+              <h4>{{ item.title }}</h4>
+              <p class="company">{{ item.company }}</p>
+              <p class="location">{{ item.location }}</p>
+              <p>{{ item.description }}</p>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section id="proyectos" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Impacto</p>
+        <h3>Resultados clave de mi actividad profesional.</h3>
+      </div>
+
+      <div class="project-grid">
+        @for (project of projects; track project.title) {
+          <article class="project-card">
+            <span class="project-tag">{{ project.tag }}</span>
+            <h4>{{ project.title }}</h4>
+            <p>{{ project.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="section values">
+      <div class="section-heading">
+        <p class="eyebrow">Valores</p>
+        <h3>Cómo trabajo y cómo me relaciono con los proyectos.</h3>
+      </div>
+
+      <div class="values-list">
+        @for (value of values; track value) {
+          <div class="value-item">
+            <span class="value-bullet"></span>
+            <span>{{ value }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section id="contacto" class="section contact">
+      <div class="contact-card">
+        <p class="eyebrow">Contacto</p>
+        <h3>Estoy abierto a nuevas oportunidades, colaboraciones y proyectos.</h3>
+        <a class="button primary" href="mailto:hola@portfolio.dev">Ponte en contacto</a>
+      </div>
+    </section>
+  </main>
+</div>
