@@ -1,0 +1,110 @@
+{
+  "navigation": [
+    { "label": "Proyectos", "href": "#proyectos" },
+    { "label": "Experiencia", "href": "#experiencia" },
+    { "label": "Sobre mi", "href": "#sobre-mi" },
+    { "label": "Contacto", "href": "#contacto" }
+  ],
+  "profile": {
+    "greeting": "Hola, soy",
+    "name": "José Ramón Jiménez García",
+    "role": "Desarrollador Full Stack",
+    "summary": "Desarrollador y emprendedor con experiencia liderando productos digitales, startups y despliege de infraestructura AWS. Me apasiona la tecnología, la automatización y la creación de soluciones útiles y escalables.",
+    "image": "assets/fotoPerfilElegante.png"
+  },
+  "cta": {
+    "primary": { "label": "Ver experiencia", "href": "#experiencia" },
+    "secondary": { "label": "Sobre mí", "href": "#sobre-mi" }
+  },
+  "projects": [
+    {
+      "title": "Reditorial",
+      "description": "Puesta en marcha de una empresa con foco en crecimiento, operación y construcción del producto digital desde cero.",
+      "tags": ["Co-Founder", "Producto", "Estrategia"],
+      "variant": "sunset",
+      "image": "assets/reditorial.svg"
+    },
+    {
+      "title": "TwinTune",
+      "description": "Lideré parte del desarrollo tecnológico con enfoque en automatización, infraestructura y gestión de proyectos, logrando reconocimiento institucional en el BIME.",
+      "tags": ["CTO", "Automatización", "Startup"],
+      "variant": "landscape",
+      "image": "assets/twintune.svg"
+    },
+    {
+      "title": "Aspiro",
+      "description": "Automatización de procesos y desarrollo de backend para optimizar operación y mejora funcional de la solución tecnológica.",
+      "tags": ["Backend", "Procesos", "Arquitectura"],
+      "variant": "studio",
+      "image": "assets/aspiro.svg"
+    }
+  ],
+  "experience": [
+    {
+      "period": "dic. 2024 - jul. 2026 · 1 año 8 meses",
+      "role": "CTO & Co-Founder",
+      "company": "Reditorial",
+      "logo": "assets/reditorial_logo.jpeg",
+      "description": "Lideré la puesta en marcha de la empresa y aporté visión estratégica, ejecución y desarrollo del producto digital, junto con el crecimiento de la marca y la operación del negocio."
+    },
+    {
+      "period": "jun. 2023 - dic. 2024 · 1 año 7 meses",
+      "role": "CTO & Co-Founder",
+      "company": "TwinTune",
+      "logo": "assets/twintune_logo.jpeg",
+      "description": "Participé en la dirección tecnológica y el desarrollo de soluciones con enfoque en automatización, producto digital y gestión de proyectos. Finalistas del BIME en 2023."
+    },
+    {
+      "period": "may. 2023 - nov. 2023 · 7 meses",
+      "role": "CTO",
+      "company": "Aspiro",
+      "logo": "assets/aspirio_logo.jpeg",
+      "description": "Automatización de procesos y desarrollo back-end para mejorar la eficiencia operativa y la arquitectura de la solución tecnológica."
+    },
+    {
+      "period": "mar. 2023 - ago. 2023 · 6 meses",
+      "role": "Accelerator Program",
+      "company": "Lanzadera",
+      "logo": "assets/lanzadera_logo.jpeg",
+      "description": "Acompañamiento en validación de negocio, estrategia empresarial, estructura inicial y desarrollo del modelo de crecimiento."
+    },
+    {
+      "period": "nov. 2022 - may. 2023 · 7 meses",
+      "role": "Incubation Program",
+      "company": "STARS",
+      "logo": "assets/starstartups_logo.jpeg",
+      "description": "Formación y apoyo en estrategia empresarial y desarrollo empresarial para materializar la idea de negocio y dar forma al producto."
+    }
+  ],
+  "skills": [
+    "Angular",
+    "JavaScript",
+    "Python",
+    "fastAPI",
+    "Java",
+    "Spring Boot",
+    "HTML5",
+    "CSS3",
+    "SQL",
+    "NoSQL",
+    "Git",
+    "AWS",
+    "boto3",
+    "Docker",
+    "UX/UI"
+  ],
+  "about": {
+    "heading": "Sobre mí",
+    "text": "Soy José Ramón, desarrollador con experiencia trabajando en startups y proyectos de crecimiento, combinando tecnología, estrategia y ejecución para crear soluciones útiles y escalables. He participado en la creación, validación y desarrollo de empresas y productos digitales, con especial foco en automatización, arquitectura, producto y mejora de procesos.",
+    "image": "assets/incibe.jpeg"
+  },
+  "contact": {
+    "heading": "Estoy abierto a nuevas oportunidades, colaboraciones y proyectos.",
+    "subtitle": "",
+    "email": "hola@portfolio.dev"
+  },
+  "socialLinks": [
+    { "label": "GitHub", "url": "https://github.com/JouseJG", "icon": "github" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/jos%C3%A9-ram%C3%B3n-jim%C3%A9nez-garc%C3%ADa", "icon": "linkedin" }
+  ]
+}
