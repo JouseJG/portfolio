@@ -1,0 +1,164 @@
+<div class="page-shell">
+  <header class="topbar">
+    <nav class="nav" aria-label="Navegación principal">
+      @for (item of config.navigation; track item.href) {
+        <a [href]="item.href">{{ item.label }}</a>
+      }
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="hero">
+      <div class="hero-panel">
+        <div class="hero-scene" aria-hidden="true">
+          <canvas #heroCanvas></canvas>
+        </div>
+
+        <div class="hero-copy">
+          <h1>
+            <span class="greeting-line">{{ config.profile.greeting }}</span>
+            <span class="name-line">{{ config.profile.name }}</span>
+          </h1>
+          <p class="role">{{ config.profile.role }}</p>
+          <p class="lead">{{ config.profile.summary }}</p>
+
+          <div class="cta-row">
+            <a class="button primary" [href]="config.cta.primary.href">{{ config.cta.primary.label }}</a>
+            <a class="button secondary" [href]="config.cta.secondary.href">{{ config.cta.secondary.label }}</a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Foto de perfil">
+          @if (config.profile.image && config.profile.image.trim()) {
+            <img class="avatar" [src]="config.profile.image" [alt]="config.profile.name || 'Foto de perfil'" />
+          } @else {
+            <div class="avatar avatar--fallback" aria-hidden="true"></div>
+          }
+        </aside>
+      </div>
+    </section>
+
+    <section id="proyectos" class="section projects">
+      <h2>Logros y Proyectos destacados</h2>
+
+      <div class="project-carousel" aria-label="Carrusel de proyectos">
+        <button class="carousel-button prev" type="button" aria-label="Proyecto anterior" (click)="showPrevious()">‹</button>
+
+        <div class="project-track">
+          @for (project of visibleProjects; track project.title) {
+            <article class="project-card">
+              @if (project.image && project.image.trim()) {
+                <img class="project-visual project-visual--image" [src]="project.image" [alt]="project.title || 'Proyecto'" />
+              } @else {
+                <div class="project-visual project-visual--{{ project.variant }}" aria-hidden="true"></div>
+              }
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.description }}</p>
+              <div class="project-tags">
+                @for (tag of project.tags; track tag) {
+                  <span>{{ tag }}</span>
+                }
+              </div>
+            </article>
+          }
+        </div>
+
+        <button class="carousel-button next" type="button" aria-label="Siguiente proyecto" (click)="showNext()">›</button>
+      </div>
+    </section>
+
+    <section class="section info-grid">
+      <div id="experiencia" class="panel experience-panel">
+        <h3>Experiencia</h3>
+
+        <ul class="timeline">
+          @for (item of config.experience; track item.company) {
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-card">
+                @if (item.logo && item.logo.trim()) {
+                  <img class="company-logo" [src]="item.logo" [alt]="item.company || 'Logo de empresa'" />
+                } @else {
+                  <div class="company-logo company-logo--fallback" [attr.aria-label]="item.company || 'Empresa'">
+                    {{ (item.company || 'E').substring(0, 2).toUpperCase() }}
+                  </div>
+                }
+
+                <div class="timeline-copy">
+                  <div class="timeline-head">
+                    <span class="period">{{ item.period }}</span>
+                    <span class="title">{{ item.role }}</span>
+                  </div>
+                  <p class="company">{{ item.company }}</p>
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="panel stack-panel">
+        <h3>Tecnologías y habilidades</h3>
+
+        <div class="chip-list">
+          @for (skill of config.skills; track skill) {
+            <span class="chip">{{ skill }}</span>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="section about">
+      <div class="about-copy">
+        <h2>{{ config.about.heading }}</h2>
+        <p>{{ config.about.text }}</p>
+      </div>
+      @if (config.about.image && config.about.image.trim()) {
+        <img class="about-image" [src]="config.about.image" [alt]="config.about.heading || 'Sobre mí'" />
+      } @else {
+        <div class="about-shape" aria-hidden="true"></div>
+      }
+    </section>
+
+    <section id="contacto" class="section contact">
+      <div class="contact-card">
+        <div class="contact-copy">
+          <h2>{{ config.contact.heading }}</h2>
+          <p>{{ config.contact.subtitle }}</p>
+
+          <div class="contact-actions">
+            <a class="email-link" [href]="'mailto:' + config.contact.email">{{ config.contact.email }}</a>
+
+            <div class="socials" aria-label="Redes sociales">
+              @for (social of config.socialLinks; track social.label) {
+                <a [href]="social.url" [attr.aria-label]="social.label" [attr.title]="social.label">
+                  @switch (social.icon) {
+                    @case ('github') {
+                      <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 .5C5.65.5.25 5.8.25 12.35c0 5.27 3.43 9.75 8.18 11.32.6.12.82-.26.82-.58v-2.02c-3.33.72-4.03-1.6-4.03-1.6-.54-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.73.08-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.84 2.8 1.31 3.48.99.11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.9 0-1.3.46-2.37 1.22-3.2-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23A11.5 11.5 0 0 1 12 5.7c1.01 0 2.03.14 2.98.41 2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.76.83 1.21 1.9 1.21 3.2 0 4.58-2.82 5.6-5.5 5.9.43.38.82 1.12.82 2.26v3.35c0 .32.22.71.83.58A12.35 12.35 0 0 0 24 12.35C24 5.8 18.35.5 12 .5Z"/>
+                      </svg>
+                    }
+                    @case ('linkedin') {
+                      <svg class="social-icon social-icon--linkedin" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12ZM5.59 9.96h2.7V18h-2.7V9.96Zm4.69 0h2.59v1.11h.04c.36-.68 1.25-1.39 2.57-1.39 2.75 0 3.26 1.8 3.26 4.14V18h-2.7v-13.52c0-1.15-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56V18h-2.7V9.96Z"/>
+                      </svg>
+                    }
+                    @default {
+                      <span class="social-x" aria-hidden="true">X</span>
+                    }
+                  }
+                </a>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 José Ramón Jiménez García</p>
+    <span>Desarrollador & emprendedor</span>
+  </footer>
+</div>

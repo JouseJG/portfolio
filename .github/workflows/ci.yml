@@ -21,8 +21,21 @@ jobs:
         with:
           node-version: 22
 
-      - name: Validar el HTML
-        run: npx --yes html-validate@9 "**/*.html"
+      - name: Validar el HTML principal
+        run: npx --yes html-validate@9 "src/index.html"
+
+  build:
+    name: Build Angular
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          args: --no-progress --max-retries 2 --exclude "https://www.linkedin.com" "**/*.html"
+          fail: true
   enlaces:
     name: Enlaces vivos
     runs-on: ubuntu-latest
