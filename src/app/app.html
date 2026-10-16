@@ -10,6 +10,10 @@
   <main class="content">
     <section class="hero">
       <div class="hero-panel">
+        <div class="hero-scene" aria-hidden="true">
+          <canvas #heroCanvas></canvas>
+        </div>
+
         <div class="hero-copy">
           <h1>
             <span class="greeting-line">{{ config.profile.greeting }}</span>
@@ -35,7 +39,7 @@
     </section>
 
     <section id="proyectos" class="section projects">
-      <h2>Proyectos destacados</h2>
+      <h2>Logros y Proyectos destacados</h2>
 
       <div class="project-carousel" aria-label="Carrusel de proyectos">
         <button class="carousel-button prev" type="button" aria-label="Proyecto anterior" (click)="showPrevious()">‹</button>

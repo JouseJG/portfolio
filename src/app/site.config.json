@@ -18,25 +18,25 @@
   },
   "projects": [
     {
-      "title": "Reditorial",
-      "description": "Puesta en marcha de una empresa con foco en crecimiento, operación y construcción del producto digital desde cero.",
-      "tags": ["Co-Founder", "Producto", "Estrategia"],
+      "title": "1º puesto hackathon Incibe",
+      "description": "Fuimos invitados a participar en el hackathon de INCIBE en Mallorca, donde desarrolle una demo funcional para la detección de Deepfakes pornográficos que resultó ganador del primer premio.",
+      "tags": ["INCIBE", "Hackathon", "Deepfake", "Ciberseguridad"],
       "variant": "sunset",
-      "image": "assets/reditorial.svg"
+      "image": "assets/incibe.jpeg"
     },
     {
-      "title": "TwinTune",
-      "description": "Lideré parte del desarrollo tecnológico con enfoque en automatización, infraestructura y gestión de proyectos, logrando reconocimiento institucional en el BIME.",
-      "tags": ["CTO", "Automatización", "Startup"],
+      "title": "CoolRack",
+      "description": "Una aplicaccion Android de lectura de Epubs y descarga de libros de forma gratuita y de software libre.",
+      "tags": ["Proyecto", "Android","Libros", "Software Libre"],
       "variant": "landscape",
-      "image": "assets/twintune.svg"
+      "image": "assets/coolRack.png"
     },
     {
-      "title": "Aspiro",
-      "description": "Automatización de procesos y desarrollo de backend para optimizar operación y mejora funcional de la solución tecnológica.",
-      "tags": ["Backend", "Procesos", "Arquitectura"],
+      "title": "LibreQR",
+      "description": "Una aplicaccion web para la creación de campañas QR y gestion de metricas de escaneo de los códigos QR generados.",
+      "tags": ["Proyecto", "Web", "QR", "Software Libre"],
       "variant": "studio",
-      "image": "assets/aspiro.svg"
+      "image": "assets/libreqr_logo.png"
     }
   ],
   "experience": [
