@@ -30,7 +30,14 @@
 
         <aside class="profile-card" aria-label="Foto de perfil">
           @if (config.profile.image && config.profile.image.trim()) {
-            <img class="avatar" [src]="config.profile.image" [alt]="config.profile.name || 'Foto de perfil'" />
+            <img
+              class="avatar"
+              [src]="config.profile.image"
+              [alt]="config.profile.name || 'Foto de perfil'"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
           } @else {
             <div class="avatar avatar--fallback" aria-hidden="true"></div>
           }
@@ -48,7 +55,13 @@
           @for (project of visibleProjects; track project.title) {
             <article class="project-card">
               @if (project.image && project.image.trim()) {
-                <img class="project-visual project-visual--image" [src]="project.image" [alt]="project.title || 'Proyecto'" />
+                <img
+                  class="project-visual project-visual--image"
+                  [src]="project.image"
+                  [alt]="project.title || 'Proyecto'"
+                  loading="lazy"
+                  decoding="async"
+                />
               } @else {
                 <div class="project-visual project-visual--{{ project.variant }}" aria-hidden="true"></div>
               }
@@ -77,7 +90,13 @@
               <span class="timeline-dot" aria-hidden="true"></span>
               <div class="timeline-card">
                 @if (item.logo && item.logo.trim()) {
-                  <img class="company-logo" [src]="item.logo" [alt]="item.company || 'Logo de empresa'" />
+                  <img
+                    class="company-logo"
+                    [src]="item.logo"
+                    [alt]="item.company || 'Logo de empresa'"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 } @else {
                   <div class="company-logo company-logo--fallback" [attr.aria-label]="item.company || 'Empresa'">
                     {{ (item.company || 'E').substring(0, 2).toUpperCase() }}
@@ -115,7 +134,13 @@
         <p>{{ config.about.text }}</p>
       </div>
       @if (config.about.image && config.about.image.trim()) {
-        <img class="about-image" [src]="config.about.image" [alt]="config.about.heading || 'Sobre mí'" />
+        <img
+          class="about-image"
+          [src]="config.about.image"
+          [alt]="config.about.heading || 'Sobre mí'"
+          loading="lazy"
+          decoding="async"
+        />
       } @else {
         <div class="about-shape" aria-hidden="true"></div>
       }
