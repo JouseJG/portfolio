@@ -7,6 +7,12 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
 
 jobs:
   html:
@@ -23,30 +29,36 @@ jobs:
 
       - name: Validar el HTML principal
         run: npx --yes html-validate@9 "src/index.html"
-
-  build:
-    name: Build Angular
+  build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Descargar el repositorio
-        uses: actions/checkout@v4
-        with:
-          node-version: 22
-          cache: npm
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-      - name: Preparar Node
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          args: --no-progress --max-retries 2 --exclude "https://www.linkedin.com" "**/*.html"
-          fail: true
+          node-version: 20
+          cache: npm
 
-      - name: Install dependencies
+      - name: Instalar dependencias
         run: npm ci
 
-      - name: Build app
-        run: npm run build -- --configuration production --base-href "/portfolio/"
+      - name: Compilar Angular
+        run: npm run build -- --base-href="/portfolio/"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir archivos compilados
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist/portfolio-app
+          path: ./dist/portfolio-app/browser
+
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
