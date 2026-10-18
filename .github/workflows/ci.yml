@@ -2,7 +2,6 @@ name: CI
 
 on:
   pull_request:
-  push:
     branches: [master]
 
 permissions:
@@ -30,23 +29,15 @@ jobs:
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
-        with:
-          node-version: 22
-          cache: npm
 
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
-          args: --no-progress --max-retries 2 --exclude "https://www.linkedin.com" "**/*.html"
-          fail: true
+          node-version: 22
+          cache: npm
 
-      - name: Install dependencies
+      - name: Instalar dependencias
         run: npm ci
 
-      - name: Build app
-        run: npm run build -- --configuration production --base-href "/portfolio/"
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist/portfolio-app
+      - name: Compilar Angular
+        run: npm run build -- --configuration production --base-href="/portfolio/"
