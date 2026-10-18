@@ -2,17 +2,10 @@ name: CI
 
 on:
   pull_request:
-  push:
     branches: [master]
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: github-pages
-  cancel-in-progress: true
 
 jobs:
   html:
@@ -29,36 +22,22 @@ jobs:
 
       - name: Validar el HTML principal
         run: npx --yes html-validate@9 "src/index.html"
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
+  build:
+    name: Build Angular
+    runs-on: ubuntu-latest
     steps:
-      - name: Descargar el código
+      - name: Descargar el repositorio
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Preparar Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Instalar dependencias
         run: npm ci
 
       - name: Compilar Angular
-        run: npm run build -- --base-href="/portfolio/"
-
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Subir archivos compilados
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: ./dist/portfolio-app/browser
-
-      - name: Publicar en GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        run: npm run build -- --configuration production --base-href="/portfolio/"
